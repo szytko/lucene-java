@@ -21,7 +21,7 @@ public class Pdf extends FileAbstract {
 	}
 	
 	/**
-	 * 
+	 * Indexes PDF document using PDFBox library
 	 */
 	@Override
 	public void indexFile() throws Exception {

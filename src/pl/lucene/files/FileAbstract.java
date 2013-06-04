@@ -19,14 +19,14 @@ abstract public class FileAbstract {
 	
 	/**
 	 * 
-	 * @param indexWriter
-	 * @param inputFile
+	 * @param indexWriter	Creates and maintains an index
+	 * @param inputFile		Indexing file
 	 */
 	public FileAbstract(IndexWriter indexWriter, File inputFile) {
 		this.indexWriter = indexWriter;
 		this.inputFile = inputFile;
 
-		Logger.log("Indeksowanie pliku: " + inputFile.getName());
+		Logger.log("Indexing file: " + inputFile.getName());
 	}
 
 	/**

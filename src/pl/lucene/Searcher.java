@@ -34,7 +34,7 @@ public class Searcher {
 
 		String[] otherArgs = cmd.getRemainingArgs();
 		try {
-			if (otherArgs.length == 0) throw new Exception("Podaj ścieżkę do katalogu");
+			if (otherArgs.length == 0) throw new Exception("Enter path to index directory");
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
 			printUsage();
@@ -44,16 +44,16 @@ public class Searcher {
 		String searchTerm = cmd.getOptionValue(search);
 		String indexDirectory = cmd.getOptionValue(index);
 		
-		if (searchTerm != null && searchTerm.length() > 0 && indexDirectory != null && indexDirectory.length() > 0) {
-			throw new Exception("Uruchom aplikację z jedną opcją");
+		if (searchTerm != null && indexDirectory != null) {
+			throw new Exception("Run application in one mode");
 		}
 		
 		if (searchTerm != null && searchTerm.length() > 0) {
 			SearchService searcher = new SearchService(otherArgs[0]);
-			Logger.log("Wyszukiwanie : " + searchTerm);
+			Logger.log("Searching : " + searchTerm);
 			searcher.search(searchTerm);
 		} else {
-			if (indexDirectory != null && indexDirectory.length() == 0) throw new Exception("Podaj ścieżke do katalogu z danymi do zaindeksowania");
+			if (indexDirectory != null && indexDirectory.length() == 0) throw new Exception("Enter path to directory with files for indexing");
 			IndexService indexer = new IndexService(otherArgs[0]);
 			indexer.buildIndexes(indexDirectory);
 		}

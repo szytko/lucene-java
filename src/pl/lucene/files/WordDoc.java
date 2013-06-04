@@ -21,7 +21,7 @@ public class WordDoc extends FileAbstract {
 	}
 
 	/**
-	 * 
+	 * Indexes Word document using POI library
 	 */
 	@Override
 	public void indexFile() throws Exception {

@@ -23,7 +23,7 @@ public class SearchService extends LuceneSearchService {
 	}
 
 	/**
-	 * 
+	 * Searches term in specified indexes directory
 	 * @param searchTerm
 	 */
 	public void search(String searchTerm) {
@@ -39,7 +39,7 @@ public class SearchService extends LuceneSearchService {
             
             long endTime = System.currentTimeMillis();
             
-            Logger.log("\nZnaleziono " + docs.totalHits + " wynik(i/ów)  w czasie " + (endTime - startTime) + " milisekund. \n\nLista dokumentów:\n");
+            Logger.log("\nFound " + docs.totalHits + " results in time " + (endTime - startTime) + " miliseconds. \n\nList of documents:\n");
 
             for (ScoreDoc hit : hits) {
                 Document doc = isearcher.doc(hit.doc);

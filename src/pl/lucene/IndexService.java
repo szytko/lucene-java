@@ -28,7 +28,7 @@ public class IndexService extends LuceneSearchService {
      * @throws IOException
      */
     private void clearIndexDirectory() throws IOException {
-    	Logger.log("Czyszczenie katalogu indeksów");
+    	Logger.log("Cleanning index directory");
     	String files[] = indexDirectory.listAll();
     	for (String fileName : files) {
     		File file = new File(indexDirectoryName + "/" + fileName);
@@ -55,13 +55,13 @@ public class IndexService extends LuceneSearchService {
    
     		File input = new File(inputDirectoryName);
     		if (!input.exists()) {
-    			System.err.println("Katalog wejściowy nie istnieje");
+    			System.err.println("Input directory does not exist");
     			System.exit(2);
     		}
     		File inputFiles[] = input.listFiles();
     		
     		for (File file : inputFiles) {
-    			//validacja pliku
+    			//file validation
     			if (!file.exists()) continue;
     			if (file.isDirectory()) continue;
     			if (!file.canRead()) continue;
@@ -87,8 +87,8 @@ public class IndexService extends LuceneSearchService {
     		
     		long endTime = System.currentTimeMillis();
     		    	
-    		Logger.log("Zaindeksowano " + indexedFilesCount + " plików w czasie " 
-    				+ (String.format("%d sekund", TimeUnit.MILLISECONDS.toSeconds(endTime - startTime)))
+    		Logger.log("Indexed " + indexedFilesCount + " files in time " 
+    				+ (String.format("%d sec", TimeUnit.MILLISECONDS.toSeconds(endTime - startTime)))
     				);
     	} catch (Exception ex) {
     		ex.printStackTrace();

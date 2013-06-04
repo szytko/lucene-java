@@ -20,7 +20,7 @@ public class Txt extends FileAbstract {
 	}
 	
 	/**
-	 * 
+	 * Reads text file content
 	 * @param aFileName
 	 * @return
 	 * @throws IOException
@@ -30,7 +30,7 @@ public class Txt extends FileAbstract {
 	}
 	
 	/**
-	 * 
+	 * Indexes text file
 	 */
 	@Override
 	public void indexFile() throws Exception {
