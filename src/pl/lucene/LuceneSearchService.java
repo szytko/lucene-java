@@ -22,16 +22,16 @@ abstract public class LuceneSearchService {
 	/**
 	 * 
 	 */
-    protected final Analyzer analyzer;
-	
-    /**
-     * 
-     * @param indexDirectoryName
-     * @throws IOException
-     */
+	protected final Analyzer analyzer;
+
+	/**
+	 * 
+	 * @param indexDirectoryName
+	 * @throws IOException
+	 */
 	public LuceneSearchService(String indexDirectoryName) throws IOException {
 		this.indexDirectoryName = indexDirectoryName;
 		indexDirectory = FSDirectory.open(new File(indexDirectoryName));
-        analyzer = new StandardAnalyzer(Version.LUCENE_36);
+		analyzer = new StandardAnalyzer(Version.LUCENE_36);
 	}
 }
