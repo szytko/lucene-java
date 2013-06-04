@@ -25,13 +25,17 @@ public class WordDoc extends FileAbstract {
 	 */
 	@Override
 	public void indexFile() throws Exception {
-		POIFSFileSystem fileSystem = new POIFSFileSystem(new FileInputStream(inputFile));		
-		WordExtractor extractor = new WordExtractor(fileSystem); 
-		
+		POIFSFileSystem fileSystem = new POIFSFileSystem(new FileInputStream(
+				inputFile));
+		WordExtractor extractor = new WordExtractor(fileSystem);
+
 		Document doc = new Document();
-		doc.add(new Field("filename", inputFile.getName(), Field.Store.YES, Field.Index.ANALYZED));
-		doc.add(new Field("filepath", inputFile.getAbsolutePath(), Field.Store.YES, Field.Index.ANALYZED));
-        doc.add(new Field("content", extractor.getText(), Field.Store.YES, Field.Index.ANALYZED));
-        indexWriter.addDocument(doc);
+		doc.add(new Field("filename", inputFile.getName(), Field.Store.YES,
+				Field.Index.ANALYZED));
+		doc.add(new Field("filepath", inputFile.getAbsolutePath(),
+				Field.Store.YES, Field.Index.ANALYZED));
+		doc.add(new Field("content", extractor.getText(), Field.Store.YES,
+				Field.Index.ANALYZED));
+		indexWriter.addDocument(doc);
 	}
 }

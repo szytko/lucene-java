@@ -16,11 +16,13 @@ abstract public class FileAbstract {
 	 * 
 	 */
 	protected File inputFile;
-	
+
 	/**
 	 * 
-	 * @param indexWriter	Creates and maintains an index
-	 * @param inputFile		Indexing file
+	 * @param indexWriter
+	 *            Creates and maintains an index
+	 * @param inputFile
+	 *            Indexing file
 	 */
 	public FileAbstract(IndexWriter indexWriter, File inputFile) {
 		this.indexWriter = indexWriter;

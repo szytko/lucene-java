@@ -19,7 +19,7 @@ public class Pdf extends FileAbstract {
 	public Pdf(IndexWriter indexWriter, File inputFile) {
 		super(indexWriter, inputFile);
 	}
-	
+
 	/**
 	 * Indexes PDF document using PDFBox library
 	 */
@@ -28,10 +28,13 @@ public class Pdf extends FileAbstract {
 		PDDocument doc = PDDocument.load(inputFile);
 		String content = new PDFTextStripper().getText(doc);
 		Document luceneDocument = LucenePDFDocument.getDocument(inputFile);
-		luceneDocument.add(new Field("filename", inputFile.getName(), Field.Store.YES, Field.Index.ANALYZED));
-		luceneDocument.add(new Field("filepath", inputFile.getAbsolutePath(), Field.Store.YES, Field.Index.ANALYZED));
-		luceneDocument.add(new Field("content", content, Field.Store.YES, Field.Index.ANALYZED));
-		
+		luceneDocument.add(new Field("filename", inputFile.getName(),
+				Field.Store.YES, Field.Index.ANALYZED));
+		luceneDocument.add(new Field("filepath", inputFile.getAbsolutePath(),
+				Field.Store.YES, Field.Index.ANALYZED));
+		luceneDocument.add(new Field("content", content, Field.Store.YES,
+				Field.Index.ANALYZED));
+
 		indexWriter.addDocument(luceneDocument);
 		doc.close();
 	}

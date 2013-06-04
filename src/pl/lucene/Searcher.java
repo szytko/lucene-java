@@ -53,7 +53,9 @@ public class Searcher {
 			Logger.log("Searching : " + searchTerm);
 			searcher.search(searchTerm);
 		} else {
-			if (indexDirectory != null && indexDirectory.length() == 0) throw new Exception("Enter path to directory with files for indexing");
+			if (indexDirectory != null && indexDirectory.length() == 0)
+				throw new Exception(
+						"Enter path to directory with files for indexing");
 			IndexService indexer = new IndexService(otherArgs[0]);
 			indexer.buildIndexes(indexDirectory);
 		}
