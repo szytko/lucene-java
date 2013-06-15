@@ -47,7 +47,7 @@ public class SearchService extends LuceneSearchService {
 
       for (ScoreDoc hit : hits) {
         Document doc = isearcher.doc(hit.doc);
-        Logger.log(doc.get("filename"));
+        Logger.log(doc.get("filename") + "\tScore: " + String.valueOf(hit.score));
       }
 
       isearcher.close();
