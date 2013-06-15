@@ -50,7 +50,7 @@ public class SearchService extends LuceneSearchService {
         Logger.log(doc.get("filename") + "\tScore: " + String.valueOf(hit.score));
       }
 
-      isearcher.close();
+      isearcher.close();	
     } catch (Exception ex) {
       ex.printStackTrace();
     }
